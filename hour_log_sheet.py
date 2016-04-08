@@ -141,6 +141,10 @@ if first_time == "yes":
 	Registered_Notification = raw_input("Would you like to receive monthly notification? ")
 	Registered_PIN = raw_input("What would you like your PIN to be? ")
 	roster=[]
+	try:
+		open('roster.csv', 'r').close()
+	except IOError:
+		open('roster.csv', 'w+')
 	with open('roster.csv') as csvfile:
 		reader = csv.DictReader(csvfile)
 		for row in reader:
